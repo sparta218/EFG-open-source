@@ -4,7 +4,7 @@ using EvilFarmingGame.Player;
 
 public class Player : KinematicBody2D
 {
-    protected PlayerController Controller;
+    private PlayerController Controller;
     
     public override void _Ready()
     {
