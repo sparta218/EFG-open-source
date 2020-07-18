@@ -15,3 +15,7 @@ Of course! Any kind of help is welcome. including:
 - Designers
 - Composers
 Even small ideas might be valueable to the team. consider joining our [discord](https://discord.gg/gYeNEDv) for more information.
+
+## How can I run this source on my computer?
+You will need Godot mono since a large amount of this project is written in C#. Check [this], it is an official godot doc about how to setup godot mono.
+If you plan to use MSbuild to run the project, you will need to have .net Framework 4.7 developer pack  installed, or you can change the target version by editing the EvilFarmingGame.csproj file.
