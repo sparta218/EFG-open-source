@@ -13,7 +13,8 @@ Of course! Any kind of help is welcome. including:
 - programmers
 - 2D artists
 - Designers
-- Composers
+- Composers 
+
 Even small ideas might be valueable to the team. consider joining our [discord](https://discord.gg/gYeNEDv) for more information.
 
 ## How can I run this source on my computer?
