@@ -5,8 +5,8 @@ EFG is a farming game similar to harvest moon and stardew valley but with a dark
 ## What is EFG Open Source?
 There has been several attempts to remake this game, most of them were abandoned or failed due to various reasons. This project is another attempt, but the source is publicly accessable and everyone are welcome to contribute.
 
-## What engine are you using?
-We are using Godot.
+## What engine are you using? What language?
+We are using Godot. If you want to commit to the master branch we ask you to use either GDscript or C#.
 
 ## Can I help you with this project? What do you need?
 Of course! Any kind of help is welcome. including:
