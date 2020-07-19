@@ -8,11 +8,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Cropped",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Grown",
@@ -27,15 +22,15 @@ animations = [ {
 "loop": true,
 "name": "UnCropped",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Cropped",
+"speed": 5.0
 } ]
 
 [node name="FarmLand" type="Area2D"]
 script = ExtResource( 5 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 8, 8 )
-scale = Vector2( 2, 2 )
-polygon = PoolVector2Array( 16, 1.5, 16, 6.5, -8, 6.5, -8, 1.5 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 position = Vector2( 8, 8 )
