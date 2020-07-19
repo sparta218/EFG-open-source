@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using EvilFarmingGame.Items.Tools;
 
 public class FarmLand : Area2D
 {
@@ -7,6 +8,7 @@ public class FarmLand : Area2D
     private bool PlayerColliding = false;
 
     private AnimatedSprite Sprite;
+    private Player PlayerBody;
     
     public enum states
     {
@@ -24,8 +26,7 @@ public class FarmLand : Area2D
     }
 
     public override void _PhysicsProcess(float delta)
-    {    
-        GD.Print(PlayerColliding);
+    {
         switch (State)
         {
             case states.UnCropped:
@@ -47,7 +48,7 @@ public class FarmLand : Area2D
     {
         if (PlayerColliding)
         {
-            if (Input.IsActionJustPressed("Player_Action"))
+            if (Input.IsActionJustPressed("Player_Action") && PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot] == Tools.BasicHoe)
             {
                 if (State == states.UnCropped)
                 {
@@ -62,6 +63,7 @@ public class FarmLand : Area2D
         if (Body.GetType() == typeof(Player))
         {
             PlayerColliding = true;
+            PlayerBody = (Player) GetNode(Body.GetPath());
         }
     }
 
