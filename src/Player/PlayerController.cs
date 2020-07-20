@@ -7,14 +7,14 @@ namespace EvilFarmingGame.Player
 		private KinematicBody2D Body;
 
 		[Export] public float Speed = 75;
-		[Export] public float SprintSpeed = 150;
+		[Export] public float SprintSpeed = 100;
 		
 		public PlayerController(KinematicBody2D Body)
 		{
 			this.Body = Body;
 		}
 
-		public Vector2 InputMovement(float delta,Node2D RayPivot) // The Movement method based on Input 
+		public Vector2 InputMovement(float delta, Node2D RayPivot) // The Movement method based on Input 
 		{
 			Vector2 Velocity = new Vector2();
 
@@ -47,8 +47,9 @@ namespace EvilFarmingGame.Player
 				Velocity *= SprintSpeed;
 			else
 				Velocity *= Speed;
-
+			
 			return this.Body.MoveAndSlide(Velocity);
 		}
+		
 	}
 }

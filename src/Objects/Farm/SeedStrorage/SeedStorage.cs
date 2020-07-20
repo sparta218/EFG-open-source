@@ -10,7 +10,8 @@ public class SeedStorage : Area2D
 	public Polygon2D OutLine;
 	public Player PlayerBody;
 
-	public override void _Ready(){
+	public override void _Ready()
+	{
 		OutLine = GetNode<Polygon2D>("OutLine");
 		OutLine.Visible = false;
 	}
