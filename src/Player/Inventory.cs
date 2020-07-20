@@ -24,5 +24,12 @@ namespace EvilFarmingGame.Player
                 Items.Add(item);
         }
 
+        public void Remove(Item item)
+        {
+            if (Items.Count > 0)
+                Items.Remove(item);
+
+        }
+
     }
 }

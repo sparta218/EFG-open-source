@@ -9,8 +9,6 @@ public class Player : KinematicBody2D
 {
     private PlayerController Controller;
     public Inventory Inventory;
-    
-    private ResourcePreloader Loader = new ResourcePreloader();
     public override void _Ready()
     {
         Controller = new PlayerController(this);
@@ -34,16 +32,27 @@ public class Player : KinematicBody2D
             
             if(Inventory[i] != null)
                 Icon.Texture = Inventory[i].Icon;
+        }
 
+        for (int i = 0; i < Inventory.Items.Capacity; i++)
+        {    
+            Sprite Icon = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Item");
+            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Selection");
+            
             if (i == Inventory.HeldSlot)
                 SelectBox.Show();
             else
                 SelectBox.Hide();
+
+            if (Inventory.Items.Count <= i)
+            {
+                Icon.Texture = (Texture) GD.Load("res://src/NoTexture.png");
+            }
         }
         
         if (Input.IsActionJustPressed("ui_right"))
         {
-            if (Inventory.HeldSlot < Inventory.Items.Count -1)
+            if (Inventory.HeldSlot < Inventory.Items.Capacity -1)
                 Inventory.HeldSlot++;
         }
         else if (Input.IsActionJustPressed("ui_left"))

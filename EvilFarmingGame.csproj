@@ -68,6 +68,7 @@
     <Compile Include="src\Player\Inventory.cs" />
     <Compile Include="src\Player\Player.cs" />
     <Compile Include="src\Player\PlayerController.cs" />
+    <Compile Include="src\WindowControl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

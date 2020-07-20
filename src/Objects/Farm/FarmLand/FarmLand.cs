@@ -1,6 +1,8 @@
 using Godot;
 using System;
+using EvilFarmingGame.Items;
 using EvilFarmingGame.Items.Tools;
+using EvilFarmingGame.Objects.Farm.Plants;
 
 public class FarmLand : Area2D
 {
@@ -8,7 +10,12 @@ public class FarmLand : Area2D
     private bool PlayerColliding = false;
 
     private AnimatedSprite Sprite;
+    private Sprite PlantSeedling;
+    private Sprite PlantGrown;
+    
     private Player PlayerBody;
+
+    private Plant CurrentPlant;
     
     public enum states
     {
@@ -23,6 +30,8 @@ public class FarmLand : Area2D
     public override void _Ready()
     {
         Sprite = (AnimatedSprite) GetNode("Sprite");
+        PlantSeedling = (Sprite) GetNode("Plant/Seedling");
+        PlantGrown = (Sprite) GetNode("Plant/Grown");
     }
 
     public override void _PhysicsProcess(float delta)
@@ -36,11 +45,24 @@ public class FarmLand : Area2D
                 Sprite.Play("Cropped");
                 break;
             case states.Planted:
-                Sprite.Play("Planted");
+                PlantGrown.Hide();
+                PlantSeedling.Show();
                 break;
             case states.Grown:
-                Sprite.Play("Grown");
+                PlantGrown.Show();
+                PlantSeedling.Hide();
                 break;
+        }
+
+        if (CurrentPlant != null)
+        {
+            switch (CurrentPlant.ID)
+            {
+                case 0:
+                    PlantSeedling.Texture = CurrentPlant.SeedlingTexture;
+                    PlantGrown.Texture = CurrentPlant.GrownTexture;
+                    break;
+            }
         }
     }
 
@@ -48,11 +70,32 @@ public class FarmLand : Area2D
     {
         if (PlayerColliding)
         {
-            if (Input.IsActionJustPressed("Player_Action") && PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot] == Tools.BasicHoe)
+            if (Input.IsActionJustPressed("Player_Action"))
             {
-                if (State == states.UnCropped)
+                if (PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
                 {
-                    State++;
+                    if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot] == Tools.BasicHoe)
+                    {
+                        if (State == states.UnCropped)
+                        {
+                            State++;
+                        }
+                    }
+
+                    if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].Type == Item.Types.Seed)
+                    {
+                        if (State == states.Cropped)
+                        {
+                            State = states.Planted;
+                            switch (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].ID)
+                            {
+                                case 0:
+                                    CurrentPlant = Plants.TestPlant;
+                                    PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -10,14 +10,8 @@ public class SeedStorage : Area2D
 
     private Player PlayerBody;
 
-    public override void _Ready()
+    public override void _PhysicsProcess(float delta)
     {
-
-    }
-
-    public override void _Process(float delta)
-    {    
-        GD.Print(PlayerColliding);
         if (PlayerColliding)
         {   
             if(Input.IsActionJustPressed("Player_Action"))
