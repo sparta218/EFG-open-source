@@ -1,16 +1,24 @@
+using Godot;
+
 namespace EvilFarmingGame.Objects.Farm.Plants
 {
     public class Plant
     {
-        public string Name { get { return Name;} set{} }
-        public string Discription { get { return Name;} set{} }
-        public int ID { get { return ID;} set{} }
+        public string Name;
+        public string Discription;
+        public int ID;
+
+        public Texture SeedlingTexture;
+        public Texture GrownTexture;
         
-        public Plant(string Name, string Discription, int ID)
+        public Plant(string Name, string Discription, int ID, string SeedlingTexturePath, string GrownTexturePath)
         {
             this.Name = Name;
             this.Discription = Discription;
             this.ID = ID;
+            
+            this.GrownTexture = (Texture)GD.Load(GrownTexturePath);
+            this.SeedlingTexture = (Texture)GD.Load(SeedlingTexturePath);
         }
         
     }

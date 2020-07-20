@@ -39,7 +39,17 @@ polygon = PoolVector2Array( 2, 32, 13, 32, 13, -8, 2, -8 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-animation = "UnCropped"
+animation = "Cropped"
 centered = false
+
+[node name="Plant" type="Node2D" parent="."]
+
+[node name="Seedling" type="Sprite" parent="Plant"]
+position = Vector2( 16, 16 )
+scale = Vector2( 2, 2 )
+
+[node name="Grown" type="Sprite" parent="Plant"]
+position = Vector2( 16, 16 )
+scale = Vector2( 2, 2 )
 [connection signal="body_entered" from="." to="." method="OnCollison"]
 [connection signal="body_exited" from="." to="." method="OnCollisonExited"]
