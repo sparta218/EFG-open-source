@@ -161,7 +161,7 @@ position = Vector2( 305, 80 )
 position = Vector2( 338, 80 )
 
 [node name="SeedStorage" parent="Enviorment" instance=ExtResource( 4 )]
-position = Vector2( 397, 48 )
+position = Vector2( 400, 64 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 397, 125 )

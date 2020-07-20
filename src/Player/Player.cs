@@ -9,14 +9,18 @@ public class Player : KinematicBody2D
 {
 	private PlayerController Controller;
 	public Inventory Inventory;
+	
 	public RayCast2D RayCast;
 	public Node2D RayPivot;
+	
 	private ResourcePreloader Loader = new ResourcePreloader();
 	public override void _Ready()
 	{
 		Controller = new PlayerController(this);
+		
 		RayPivot = GetNode<Node2D>("RayPivot");
 		RayCast = GetNode<RayCast2D>("RayPivot/RayCast2D");
+		
 		Inventory = new Inventory();
 		Inventory.Items.Add(Tools.BasicHoe);
 	}
@@ -25,19 +29,8 @@ public class Player : KinematicBody2D
 	{
 		Controller.InputMovement(delta,RayPivot);
 		InventoryHandling();
-		var CollidedTile = RayCast.GetCollider();
-		if (CollidedTile is FarmLand) {
-			var CollidedFarmLand = (FarmLand)CollidedTile;
-			CollidedFarmLand.OutLine.Visible = true;
-			CollidedFarmLand.PlayerColliding = true;
-			CollidedFarmLand.PlayerBody = this;
-		}
-		if (CollidedTile is SeedStorage){
-			var CollidedSeedStorage = (SeedStorage)CollidedTile;
-			CollidedSeedStorage.OutLine.Visible = true;
-			CollidedSeedStorage.PlayerColliding = true;
-			CollidedSeedStorage.PlayerBody = this;
-		}
+		
+		RayCasting(RayCast);
 	}
 
 	public void InventoryHandling()
@@ -77,6 +70,34 @@ public class Player : KinematicBody2D
 			if (Inventory.HeldSlot > 0)
 				Inventory.HeldSlot--;
 		}
+		
+		
+	}
 
+	public void RayCasting(RayCast2D RayCast)
+	{
+		var collidedTile = RayCast.GetCollider();
+
+		switch (collidedTile)
+		{
+			case FarmLand tile:
+				
+				var collidedFarmLand = (FarmLand)collidedTile;
+			
+				collidedFarmLand.OutLine.Visible = true;
+				collidedFarmLand.PlayerColliding = true;
+				collidedFarmLand.PlayerBody = this;
+				break;
+			
+			case SeedStorage tile:
+				
+				var collidedSeedStorage = (SeedStorage)collidedTile;
+			
+				collidedSeedStorage.OutLine.Visible = true;
+				collidedSeedStorage.PlayerColliding = true;
+				collidedSeedStorage.PlayerBody = this;
+				break;
+		}
+		
 	}
 }
