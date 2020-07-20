@@ -9,8 +9,6 @@ public class Player : KinematicBody2D
 {
     private PlayerController Controller;
     public Inventory Inventory;
-    
-    private ResourcePreloader Loader = new ResourcePreloader();
     public override void _Ready()
     {
         Controller = new PlayerController(this);

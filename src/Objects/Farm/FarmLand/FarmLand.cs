@@ -72,30 +72,28 @@ public class FarmLand : Area2D
         {
             if (Input.IsActionJustPressed("Player_Action"))
             {
-                if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot] == Tools.BasicHoe)
+                if (PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
                 {
-                    if (State == states.UnCropped)
+                    if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot] == Tools.BasicHoe)
                     {
-                        State++;
-                    }
-                }
-
-                if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].Type == Item.Types.Seed)
-                {
-                    if (State == states.Cropped)
-                    {
-                        State = states.Planted;
-                        switch (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].ID)
+                        if (State == states.UnCropped)
                         {
-                            case 0:
-                                CurrentPlant = Plants.TestPlant;
-                                break;
+                            State++;
                         }
+                    }
 
-                        PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
-                        foreach (var item in PlayerBody.Inventory.Items)
+                    if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].Type == Item.Types.Seed)
+                    {
+                        if (State == states.Cropped)
                         {
-                            GD.Print(item.Name);
+                            State = states.Planted;
+                            switch (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].ID)
+                            {
+                                case 0:
+                                    CurrentPlant = Plants.TestPlant;
+                                    PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
+                                    break;
+                            }
                         }
                     }
                 }

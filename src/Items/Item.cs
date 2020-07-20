@@ -12,10 +12,11 @@ namespace EvilFarmingGame.Items
         public Types Type;
 
         public enum Types
-        {
-            Tool = 0,
+        {    
+            Misselaniuos = 0,
+            Tool,
             Seed,
-            misselaniuos
+            
         }
 
         public Item(string Name, string IconPath, string Discription, int ID, Types Type)
