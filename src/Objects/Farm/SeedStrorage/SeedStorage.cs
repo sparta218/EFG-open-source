@@ -6,33 +6,25 @@ using EvilFarmingGame.Player;
 public class SeedStorage : Area2D
 {
 
-    private bool PlayerColliding;
+	public bool PlayerColliding;
+	public Polygon2D OutLine;
+	public Player PlayerBody;
 
-    private Player PlayerBody;
+	public override void _Ready(){
+		OutLine = GetNode<Polygon2D>("OutLine");
+		OutLine.Visible = false;
+	}
 
-    public override void _PhysicsProcess(float delta)
-    {
-        if (PlayerColliding)
-        {   
-            if(Input.IsActionJustPressed("Player_Action"))
-                PlayerBody.Inventory.Gain(Seeds.TestSeed);
-        }
-    }
+	public override void _PhysicsProcess(float delta)
+	{
+		if (PlayerColliding)
+		{   
+			if(Input.IsActionJustPressed("Player_Action"))
+				PlayerBody.Inventory.Gain(Seeds.TestSeed);
+		}
+		OutLine.Visible = false;
+		PlayerColliding = false;
+	}
 
-    public void OnCollision(PhysicsBody2D Body)
-    {
-        if (Body.GetType() == typeof(Player))
-        {
-            PlayerColliding = true;
-            PlayerBody = (Player) GetNode(Body.GetPath());
-        }
-    }
-
-    public void OnCollisonExited(PhysicsBody2D Body)
-    {
-        if (Body.GetType() == typeof(Player))
-        {
-            PlayerColliding = false;
-        }
-    }
+	
 }

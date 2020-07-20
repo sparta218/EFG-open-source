@@ -14,25 +14,29 @@ namespace EvilFarmingGame.Player
 			this.Body = Body;
 		}
 
-		public Vector2 InputMovement(float delta) // The Movement method based on Input 
+		public Vector2 InputMovement(float delta,Node2D RayPivot) // The Movement method based on Input 
 		{
 			Vector2 Velocity = new Vector2();
 
 			if (Input.IsActionPressed("Player_Up"))
 			{
 				Velocity += Vector2.Up;
+				RayPivot.RotationDegrees = 180;
 			}
 			else if (Input.IsActionPressed("Player_Down"))
 			{
 				Velocity += Vector2.Down;
+				RayPivot.RotationDegrees = 0;
 			}
 			if (Input.IsActionPressed("Player_Left"))
 			{
 				Velocity += Vector2.Left;
+				RayPivot.RotationDegrees = 90;
 			}
 			else if (Input.IsActionPressed("Player_Right"))
 			{
 				Velocity += Vector2.Right;
+				RayPivot.RotationDegrees = 270;
 			}
 			if (Velocity.Length() > 1)
 			{

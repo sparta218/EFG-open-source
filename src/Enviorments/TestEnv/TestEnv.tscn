@@ -20,112 +20,148 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="Row 1" type="Node2D" parent="Enviorment/Farmland"]
 
 [node name="FarmLand" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
-position = Vector2( 208, 80 )
+position = Vector2( 206, 80 )
 
 [node name="FarmLand2" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
-position = Vector2( 240, 80 )
+position = Vector2( 239, 80 )
 
 [node name="FarmLand3" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
 [node name="FarmLand4" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
-position = Vector2( 304, 80 )
+position = Vector2( 305, 80 )
 
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
-position = Vector2( 336, 80 )
+position = Vector2( 338, 80 )
 
 [node name="Row 2" type="Node2D" parent="Enviorment/Farmland"]
-position = Vector2( 0, 80 )
+position = Vector2( 255, 0 )
 
 [node name="FarmLand" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
-position = Vector2( 208, 80 )
+position = Vector2( 206, 80 )
 
 [node name="FarmLand2" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
-position = Vector2( 240, 80 )
+position = Vector2( 239, 80 )
 
 [node name="FarmLand3" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
 [node name="FarmLand4" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
-position = Vector2( 304, 80 )
+position = Vector2( 305, 80 )
 
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
-position = Vector2( 336, 80 )
+position = Vector2( 338, 80 )
 
 [node name="Row 3" type="Node2D" parent="Enviorment/Farmland"]
-position = Vector2( 0, 160 )
+position = Vector2( 0, 80 )
 
 [node name="FarmLand" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
-position = Vector2( 208, 80 )
+position = Vector2( 206, 80 )
 
 [node name="FarmLand2" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
-position = Vector2( 240, 80 )
+position = Vector2( 239, 80 )
 
 [node name="FarmLand3" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
 [node name="FarmLand4" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
-position = Vector2( 304, 80 )
+position = Vector2( 305, 80 )
 
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
-position = Vector2( 336, 80 )
+position = Vector2( 338, 80 )
 
 [node name="Row 4" type="Node2D" parent="Enviorment/Farmland"]
-position = Vector2( 224, 0 )
+position = Vector2( 255, 80 )
 
 [node name="FarmLand" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
-position = Vector2( 208, 80 )
+position = Vector2( 206, 80 )
 
 [node name="FarmLand2" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
-position = Vector2( 240, 80 )
+position = Vector2( 239, 80 )
 
 [node name="FarmLand3" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
 [node name="FarmLand4" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
-position = Vector2( 304, 80 )
+position = Vector2( 305, 80 )
 
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
-position = Vector2( 336, 80 )
+position = Vector2( 338, 80 )
 
 [node name="Row 5" type="Node2D" parent="Enviorment/Farmland"]
-position = Vector2( 224, 80 )
+position = Vector2( 0, 152 )
 
 [node name="FarmLand" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
-position = Vector2( 208, 80 )
+position = Vector2( 206, 80 )
 
 [node name="FarmLand2" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
-position = Vector2( 240, 80 )
+position = Vector2( 239, 80 )
 
 [node name="FarmLand3" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
 [node name="FarmLand4" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
-position = Vector2( 304, 80 )
+position = Vector2( 305, 80 )
 
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
-position = Vector2( 336, 80 )
+position = Vector2( 338, 80 )
 
 [node name="Row 6" type="Node2D" parent="Enviorment/Farmland"]
-position = Vector2( 224, 160 )
+position = Vector2( 255, 152 )
 
 [node name="FarmLand" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
-position = Vector2( 208, 80 )
+position = Vector2( 206, 80 )
 
 [node name="FarmLand2" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
-position = Vector2( 240, 80 )
+position = Vector2( 239, 80 )
 
 [node name="FarmLand3" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
 [node name="FarmLand4" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
-position = Vector2( 304, 80 )
+position = Vector2( 305, 80 )
 
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
-position = Vector2( 336, 80 )
+position = Vector2( 338, 80 )
+
+[node name="Row 7" type="Node2D" parent="Enviorment/Farmland"]
+position = Vector2( 0, 232 )
+
+[node name="FarmLand" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+position = Vector2( 206, 80 )
+
+[node name="FarmLand2" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+position = Vector2( 239, 80 )
+
+[node name="FarmLand3" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+position = Vector2( 272, 80 )
+
+[node name="FarmLand4" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+position = Vector2( 305, 80 )
+
+[node name="FarmLand5" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+position = Vector2( 338, 80 )
+
+[node name="Row 8" type="Node2D" parent="Enviorment/Farmland"]
+position = Vector2( 255, 232 )
+
+[node name="FarmLand" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+position = Vector2( 206, 80 )
+
+[node name="FarmLand2" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+position = Vector2( 239, 80 )
+
+[node name="FarmLand3" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+position = Vector2( 272, 80 )
+
+[node name="FarmLand4" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+position = Vector2( 305, 80 )
+
+[node name="FarmLand5" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+position = Vector2( 338, 80 )
 
 [node name="SeedStorage" parent="Enviorment" instance=ExtResource( 4 )]
-position = Vector2( 384, 48 )
+position = Vector2( 397, 48 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 384, 192 )
+position = Vector2( 397, 125 )

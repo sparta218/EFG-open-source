@@ -7,59 +7,76 @@ using EvilFarmingGame.Player;
 
 public class Player : KinematicBody2D
 {
-    private PlayerController Controller;
-    public Inventory Inventory;
-    public override void _Ready()
-    {
-        Controller = new PlayerController(this);
-        
-        Inventory = new Inventory();
-        Inventory.Items.Add(Tools.BasicHoe);
-    }
+	private PlayerController Controller;
+	public Inventory Inventory;
+	public RayCast2D RayCast;
+	public Node2D RayPivot;
+	private ResourcePreloader Loader = new ResourcePreloader();
+	public override void _Ready()
+	{
+		Controller = new PlayerController(this);
+		RayPivot = GetNode<Node2D>("RayPivot");
+		RayCast = GetNode<RayCast2D>("RayPivot/RayCast2D");
+		Inventory = new Inventory();
+		Inventory.Items.Add(Tools.BasicHoe);
+	}
 
-    public override void _PhysicsProcess(float delta)
-    {
-        Controller.InputMovement(delta);
-        InventoryHandling();
-    }
+	public override void _PhysicsProcess(float delta)
+	{
+		Controller.InputMovement(delta,RayPivot);
+		InventoryHandling();
+		var CollidedTile = RayCast.GetCollider();
+		if (CollidedTile is FarmLand) {
+			var CollidedFarmLand = (FarmLand)CollidedTile;
+			CollidedFarmLand.OutLine.Visible = true;
+			CollidedFarmLand.PlayerColliding = true;
+			CollidedFarmLand.PlayerBody = this;
+		}
+		if (CollidedTile is SeedStorage){
+			var CollidedSeedStorage = (SeedStorage)CollidedTile;
+			CollidedSeedStorage.OutLine.Visible = true;
+			CollidedSeedStorage.PlayerColliding = true;
+			CollidedSeedStorage.PlayerBody = this;
+		}
+	}
 
-    public void InventoryHandling()
-    {
-        for (int i = 0; i < Inventory.Items.Count; i++)
-        {
-            Sprite Icon = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Selection");
-            
-            if(Inventory[i] != null)
-                Icon.Texture = Inventory[i].Icon;
-        }
+	public void InventoryHandling()
+	{
+		for (int i = 0; i < Inventory.Items.Count; i++)
+		{
+			Sprite Icon = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Item");
+			Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Selection");
+			
+			if(Inventory[i] != null)
+				Icon.Texture = Inventory[i].Icon;
+		}
 
-        for (int i = 0; i < Inventory.Items.Capacity; i++)
-        {    
-            Sprite Icon = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Selection");
-            
-            if (i == Inventory.HeldSlot)
-                SelectBox.Show();
-            else
-                SelectBox.Hide();
+		for (int i = 0; i < Inventory.Items.Capacity; i++)
+		{    
+			Sprite Icon = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Item");
+			Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i+1}/Selection");
+			
+			if (i == Inventory.HeldSlot)
+				SelectBox.Show();
+			else
+				SelectBox.Hide();
 
-            if (Inventory.Items.Count <= i)
-            {
-                Icon.Texture = (Texture) GD.Load("res://src/NoTexture.png");
-            }
-        }
-        
-        if (Input.IsActionJustPressed("ui_right"))
-        {
-            if (Inventory.HeldSlot < Inventory.Items.Capacity -1)
-                Inventory.HeldSlot++;
-        }
-        else if (Input.IsActionJustPressed("ui_left"))
-        {
-            if (Inventory.HeldSlot > 0)
-                Inventory.HeldSlot--;
-        }
+			if (Inventory.Items.Count <= i)
+			{
+				Icon.Texture = (Texture) GD.Load("res://src/NoTexture.png");
+			}
+		}
+		
+		if (Input.IsActionJustPressed("ui_right"))
+		{
+			if (Inventory.HeldSlot < Inventory.Items.Capacity -1)
+				Inventory.HeldSlot++;
+		}
+		else if (Input.IsActionJustPressed("ui_left"))
+		{
+			if (Inventory.HeldSlot > 0)
+				Inventory.HeldSlot--;
+		}
 
-    }
+	}
 }
