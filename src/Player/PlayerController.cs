@@ -7,7 +7,7 @@ namespace EvilFarmingGame.Player
 		private KinematicBody2D Body;
 
 		[Export] public float Speed = 75;
-		[Export] public float SprintSpeed = 100;
+		[Export] public float SprintSpeed = 112;
 		
 		public PlayerController(KinematicBody2D Body)
 		{

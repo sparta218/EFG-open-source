@@ -13,6 +13,9 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="src" t="Include">
+        <e p="Enviorments" t="Include">
+          <e p="DayNight.cs" t="Include" />
+        </e>
         <e p="Items" t="Include">
           <e p="Item.cs" t="Include" />
           <e p="Seeds.cs" t="Include" />

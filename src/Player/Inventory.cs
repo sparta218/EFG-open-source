@@ -28,7 +28,6 @@ namespace EvilFarmingGame.Player
 		{
 			if (Items.Count > 0)
 				Items.Remove(item);
-
 		}
 
 	}
