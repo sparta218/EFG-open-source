@@ -26,14 +26,13 @@ public class Player : KinematicBody2D
 
 		Inventory = new Inventory();
 		Inventory.Items.Add(Tools.BasicHoe);
-		
+
 		TimeNode = (DayNight) GetNode("DayNight");
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
 		Controller.InputMovement(delta, RayPivot);
-		
 		InventoryHandling();
 		RayCasting();
 		TimeHandling();
@@ -84,6 +83,7 @@ public class Player : KinematicBody2D
 	{
 		foreach (RayCast2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
 		{
+
 			var collidedTile = RayCast.GetCollider();
 
 			switch (collidedTile)
@@ -105,7 +105,9 @@ public class Player : KinematicBody2D
 					collidedSeedStorage.PlayerColliding = true;
 					collidedSeedStorage.PlayerBody = this;
 					break;
+
 			}
+			if (collidedTile != null) break;
 		}
 
 	}
@@ -116,6 +118,5 @@ public class Player : KinematicBody2D
 			Clock.BbcodeText = $"{TimeNode.TimeOfDay -12} PM";
 		else
 			Clock.BbcodeText = $"{TimeNode.TimeOfDay} AM";
-		
 	}
 }
