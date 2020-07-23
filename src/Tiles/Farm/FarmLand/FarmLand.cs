@@ -8,13 +8,18 @@ public class FarmLand : Area2D
 {
 
 	public bool PlayerColliding = false;
+	
 	private AnimatedSprite Sprite;
+	
+	public Sprite OutLine;
+	
+	public Player PlayerBody;
+	
+	private Plant CurrentPlant;
 	private Sprite PlantSeedling;
 	private Sprite PlantGrown;
-	public Polygon2D OutLine;
-	public Player PlayerBody;
-	private Plant CurrentPlant;
-	
+	private Timer PlantGrownTimer;
+
 	public enum states
 	{
 		UnCropped = 0,
@@ -28,9 +33,13 @@ public class FarmLand : Area2D
 	public override void _Ready()
 	{
 		Sprite = (AnimatedSprite) GetNode("Sprite");
+		
 		PlantSeedling = (Sprite) GetNode("Plant/Seedling");
 		PlantGrown = (Sprite) GetNode("Plant/Grown");
-		OutLine = GetNode<Polygon2D>("OutLine");
+
+		PlantGrownTimer = (Timer) GetNode("Timers/PlantGrowthTimer");
+		
+		OutLine = (Sprite) GetNode("OutLine");
 		OutLine.Visible = false;
 	}
 
@@ -70,6 +79,7 @@ public class FarmLand : Area2D
 
 	public override void _Input(InputEvent @event)
 	{
+
 		if (PlayerColliding)
 		{
 			if (Input.IsActionJustPressed("Player_Action"))
@@ -86,6 +96,8 @@ public class FarmLand : Area2D
 						if (State == states.Cropped)
 						{
 							State = states.Planted;
+							PlantGrownTimer.Start();
+							
 							switch (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].ID)
 							{
 								case 0:
@@ -100,7 +112,10 @@ public class FarmLand : Area2D
 		}
 	}
 
-
+	public void OnPlantGrown()
+	{
+		State = states.Grown;
+	}
 	
 	
 }

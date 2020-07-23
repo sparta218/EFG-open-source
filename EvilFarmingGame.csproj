@@ -62,10 +62,10 @@
     <Compile Include="src\Items\Item.cs" />
     <Compile Include="src\Items\Seeds.cs" />
     <Compile Include="src\Items\Tools\Tools.cs" />
-    <Compile Include="src\Objects\Farm\FarmLand\FarmLand.cs" />
-    <Compile Include="src\Objects\Farm\Plants\Plant.cs" />
-    <Compile Include="src\Objects\Farm\Plants\Plants.cs" />
-    <Compile Include="src\Objects\Farm\SeedStrorage\SeedStorage.cs" />
+    <Compile Include="src\Tiles\Farm\FarmLand\FarmLand.cs" />
+    <Compile Include="src\Tiles\Farm\Plants\Plant.cs" />
+    <Compile Include="src\Tiles\Farm\Plants\Plants.cs" />
+    <Compile Include="src\Tiles\Farm\SeedStrorage\SeedStorage.cs" />
     <Compile Include="src\Player\Inventory.cs" />
     <Compile Include="src\Player\Player.cs" />
     <Compile Include="src\Player\PlayerController.cs" />
