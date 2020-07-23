@@ -7,12 +7,12 @@ public class SeedStorage : Area2D
 {
 
 	public bool PlayerColliding;
-	public Polygon2D OutLine;
+	public Sprite OutLine;
 	public Player PlayerBody;
 
 	public override void _Ready()
 	{
-		OutLine = GetNode<Polygon2D>("OutLine");
+		OutLine = (Sprite)GetNode("OutLine");
 		OutLine.Visible = false;
 	}
 

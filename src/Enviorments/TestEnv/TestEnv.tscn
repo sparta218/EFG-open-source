@@ -2,8 +2,8 @@
 
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Objects/Farm/FarmLand/FarmLand.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Objects/Farm/SeedStrorage/SeedStorage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Tiles/Farm/FarmLand/FarmLand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Tiles/Farm/SeedStrorage/SeedStorage.tscn" type="PackedScene" id=4]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -164,4 +164,4 @@ position = Vector2( 338, 80 )
 position = Vector2( 400, 64 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 397, 125 )
+position = Vector2( 392, 264 )

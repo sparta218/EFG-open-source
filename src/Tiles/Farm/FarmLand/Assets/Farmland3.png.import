@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Farmland3.png-a70e56bae36a44a8fcc078403ca070dc.stex"
+path="res://.import/Farmland3.png-a74ec0e9dde97f7db529f48dea1fe7fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Objects/Farm/FarmLand/Assets/Farmland3.png"
-dest_files=[ "res://.import/Farmland3.png-a70e56bae36a44a8fcc078403ca070dc.stex" ]
+source_file="res://src/Tiles/Farm/FarmLand/Assets/Farmland3.png"
+dest_files=[ "res://.import/Farmland3.png-a74ec0e9dde97f7db529f48dea1fe7fa.stex" ]
 
 [params]
 

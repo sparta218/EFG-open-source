@@ -23,7 +23,12 @@
             <e p="Tools.cs" t="Include" />
           </e>
         </e>
-        <e p="Objects" t="Include">
+        <e p="Player" t="Include">
+          <e p="Inventory.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+        </e>
+        <e p="Tiles" t="Include">
           <e p="Farm" t="Include">
             <e p="FarmLand" t="Include">
               <e p="FarmLand.cs" t="Include" />
@@ -36,11 +41,6 @@
               <e p="SeedStorage.cs" t="Include" />
             </e>
           </e>
-        </e>
-        <e p="Player" t="Include">
-          <e p="Inventory.cs" t="Include" />
-          <e p="Player.cs" t="Include" />
-          <e p="PlayerController.cs" t="Include" />
         </e>
         <e p="WindowControl.cs" t="Include" />
       </e>
