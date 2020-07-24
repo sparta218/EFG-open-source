@@ -16,7 +16,7 @@ namespace EvilFarmingGame.Items
             Misselaniuos = 0,
             Tool,
             Seed,
-            
+            Crop
         }
 
         public Item(string Name, string IconPath, string Discription, int ID, Types Type)
