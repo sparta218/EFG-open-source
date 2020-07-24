@@ -25,7 +25,7 @@ public class Player : KinematicBody2D
 		Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
 
 		Inventory = new Inventory();
-		Inventory.Items.Add(Tools.BasicHoe);
+		Inventory.Items.Add(Tools.GetTool(0));
 
 		TimeNode = (DayNight) GetNode("DayNight");
 	}

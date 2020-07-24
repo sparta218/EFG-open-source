@@ -90,7 +90,7 @@ public class FarmLand : Area2D
 				{
 					HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 
-					if (HeldItem == Tools.BasicHoe)
+					if (HeldItem == Tools.GetTool(0))
 					{
 						State = states.Cropped;
 					}
@@ -101,15 +101,15 @@ public class FarmLand : Area2D
 						{
 							State = states.Planted;
 							PlantGrownTimer.Start();
-							
+
 							switch (HeldItem.ID)
 							{
 								case 0:
-									CurrentPlant = Plants.TestPlant;
+									CurrentPlant = Plants.GetPlant(0);
 									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
 									break;
 								case 1:
-									CurrentPlant = Plants.TestPlant2;
+									CurrentPlant = Plants.GetPlant(1);
 									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
 									break;
 							}
