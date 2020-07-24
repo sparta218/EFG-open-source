@@ -20,6 +20,8 @@ public class FarmLand : Area2D
 	private Sprite PlantGrown;
 	private Timer PlantGrownTimer;
 
+	private Item HeldItem;
+
 	public enum states
 	{
 		UnCropped = 0,
@@ -38,7 +40,7 @@ public class FarmLand : Area2D
 		PlantGrown = (Sprite) GetNode("Plant/Grown");
 
 		PlantGrownTimer = (Timer) GetNode("Timers/PlantGrowthTimer");
-		
+
 		OutLine = (Sprite) GetNode("OutLine");
 		OutLine.Visible = false;
 	}
@@ -63,7 +65,12 @@ public class FarmLand : Area2D
 				break;
 		}
 
-		if (CurrentPlant != null)
+		if (CurrentPlant == null)
+		{
+			PlantSeedling.Texture = (Texture) GD.Load("res://src/NoTexture.png");
+			PlantGrown.Texture = (Texture) GD.Load("res://src/NoTexture.png");
+		}
+		else
 		{
 			switch (CurrentPlant.ID)
 			{
@@ -86,19 +93,21 @@ public class FarmLand : Area2D
 			{
 				if (PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
 				{
-					if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot] == Tools.BasicHoe)
+					HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
+
+					if (HeldItem == Tools.BasicHoe)
 					{
 						State = states.Cropped;
 					}
 
-					if (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].Type == Item.Types.Seed)
+					if (HeldItem.Type == Item.Types.Seed)
 					{
 						if (State == states.Cropped)
 						{
 							State = states.Planted;
 							PlantGrownTimer.Start();
 							
-							switch (PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot].ID)
+							switch (HeldItem.ID)
 							{
 								case 0:
 									CurrentPlant = Plants.TestPlant;
@@ -106,6 +115,17 @@ public class FarmLand : Area2D
 									break;
 							}
 						}
+					}
+					
+				}
+
+				if (PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
+				{
+					if (State == states.Grown)
+					{
+						PlayerBody.Inventory.Gain(CurrentPlant.Crop);
+						CurrentPlant = null;
+						State = states.UnCropped;
 					}
 				}
 			}
