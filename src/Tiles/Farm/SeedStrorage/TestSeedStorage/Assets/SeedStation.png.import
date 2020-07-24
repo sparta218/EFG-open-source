@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SeedStation.png-aebbe994b8c0213464ac9d8a3994816c.stex"
+path="res://.import/SeedStation.png-6891778b08d7e460f4499be0b6cefae6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Tiles/Farm/SeedStrorage/Assets/SeedStation.png"
-dest_files=[ "res://.import/SeedStation.png-aebbe994b8c0213464ac9d8a3994816c.stex" ]
+source_file="res://src/Tiles/Farm/SeedStrorage/TestSeedStorage/Assets/SeedStation.png"
+dest_files=[ "res://.import/SeedStation.png-6891778b08d7e460f4499be0b6cefae6.stex" ]
 
 [params]
 
