@@ -43,7 +43,9 @@
               <e p="Plants.cs" t="Include" />
             </e>
             <e p="SeedStrorage" t="Include">
-              <e p="SeedStorage.cs" t="Include" />
+              <e p="TestSeedStorage" t="Include">
+                <e p="SeedStorage.cs" t="Include" />
+              </e>
             </e>
           </e>
         </e>

@@ -72,13 +72,8 @@ public class FarmLand : Area2D
 		}
 		else
 		{
-			switch (CurrentPlant.ID)
-			{
-				case 0:
-					PlantSeedling.Texture = CurrentPlant.SeedlingTexture;
-					PlantGrown.Texture = CurrentPlant.GrownTexture;
-					break;
-			}
+			PlantSeedling.Texture = CurrentPlant.SeedlingTexture;
+			PlantGrown.Texture = CurrentPlant.GrownTexture;
 		}
 		OutLine.Visible = false;
 		PlayerColliding = false;
@@ -111,6 +106,10 @@ public class FarmLand : Area2D
 							{
 								case 0:
 									CurrentPlant = Plants.TestPlant;
+									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
+									break;
+								case 1:
+									CurrentPlant = Plants.TestPlant2;
 									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
 									break;
 							}

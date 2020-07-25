@@ -10,6 +10,8 @@ public class SeedStorage : Area2D
 	public Sprite OutLine;
 	public Player PlayerBody;
 
+	[Export] private int Seed;
+
 	public override void _Ready()
 	{
 		OutLine = (Sprite)GetNode("OutLine");
@@ -19,9 +21,12 @@ public class SeedStorage : Area2D
 	public override void _PhysicsProcess(float delta)
 	{
 		if (PlayerColliding)
-		{   
-			if(Input.IsActionJustPressed("Player_Action"))
-				PlayerBody.Inventory.Gain(Seeds.TestSeed);
+		{
+			if (Seed != null)
+			{
+				if (Input.IsActionJustPressed("Player_Action"))
+					PlayerBody.Inventory.Gain(Seeds.GetSeed(Seed));
+			}
 		}
 		OutLine.Visible = false;
 		PlayerColliding = false;

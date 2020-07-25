@@ -3,7 +3,7 @@
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Tiles/Farm/FarmLand/FarmLand.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Tiles/Farm/SeedStrorage/SeedStorage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.tscn" type="PackedScene" id=4]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -160,8 +160,13 @@ position = Vector2( 305, 80 )
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="SeedStorage" parent="Enviorment" instance=ExtResource( 4 )]
-position = Vector2( 400, 64 )
+[node name="TestSeedStorage" parent="." instance=ExtResource( 4 )]
+position = Vector2( 376, 64 )
+
+[node name="TestSeedStorage2" parent="." instance=ExtResource( 4 )]
+modulate = Color( 0, 0.109804, 1, 1 )
+position = Vector2( 424, 64 )
+Seed = 1
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 392, 264 )
