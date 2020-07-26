@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Outline.png-8a9704fe4bb535aaa3af801b5000da2f.stex"
+path="res://.import/Dirt.png-4fc83dc673932452653e1c685f27b237.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Tiles/Outline.png"
-dest_files=[ "res://.import/Outline.png-8a9704fe4bb535aaa3af801b5000da2f.stex" ]
+source_file="res://src/Tiles/Farm/Ground-tile/Dirt.png"
+dest_files=[ "res://.import/Dirt.png-4fc83dc673932452653e1c685f27b237.stex" ]
 
 [params]
 

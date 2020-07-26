@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Outline.png-8a9704fe4bb535aaa3af801b5000da2f.stex"
+path="res://.import/Texture.png-d31fefcee8c49c9e3ad7f661db44efe2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Tiles/Outline.png"
-dest_files=[ "res://.import/Outline.png-8a9704fe4bb535aaa3af801b5000da2f.stex" ]
+source_file="res://src/Items/Tools/Watering Can/Texture.png"
+dest_files=[ "res://.import/Texture.png-d31fefcee8c49c9e3ad7f661db44efe2.stex" ]
 
 [params]
 

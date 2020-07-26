@@ -25,9 +25,11 @@ public class FarmLand : Area2D
 	public enum states
 	{
 		UnCropped = 0,
-		Cropped = 1,
-		Planted = 2,
-		Grown = 3
+		Cropped,
+		Planted,
+		Watered,
+		Grown
+		
 	}
 
 	public states State;
@@ -56,10 +58,15 @@ public class FarmLand : Area2D
 				Sprite.Play("Cropped");
 				break;
 			case states.Planted:
+				Sprite.Play("UnCropped");
 				PlantGrown.Hide();
 				PlantSeedling.Show();
 				break;
+			case states.Watered:
+				Sprite.Play("Watered");
+				break;
 			case states.Grown:
+				Sprite.Play("UnCropped");
 				PlantGrown.Show();
 				PlantSeedling.Hide();
 				break;
@@ -90,7 +97,7 @@ public class FarmLand : Area2D
 				{
 					HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 
-					if (HeldItem == Tools.BasicHoe)
+					if (HeldItem == Tools.GetTool(0))
 					{
 						State = states.Cropped;
 					}
@@ -100,22 +107,27 @@ public class FarmLand : Area2D
 						if (State == states.Cropped)
 						{
 							State = states.Planted;
-							PlantGrownTimer.Start();
-							
+
 							switch (HeldItem.ID)
 							{
 								case 0:
-									CurrentPlant = Plants.TestPlant;
+									CurrentPlant = Plants.GetPlant(0);
 									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
 									break;
 								case 1:
-									CurrentPlant = Plants.TestPlant2;
+									CurrentPlant = Plants.GetPlant(1);
 									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
 									break;
 							}
 						}
 					}
-					
+
+					if (HeldItem == Tools.GetTool(1) && State == states.Planted)
+					{
+						State = states.Watered;
+						PlantGrownTimer.Start();
+					}
+
 				}
 
 				if (PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)

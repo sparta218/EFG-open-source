@@ -1,33 +1,33 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/Cube.png" type="Texture" id=1]
+[ext_resource path="res://src/Cube32.png" type="Texture" id=1]
+[ext_resource path="res://src/Tiles/Farm/Ground-tile/Dirt.png" type="Texture" id=2]
 
 [node name="BaseTiles" type="Node2D"]
 
 [node name="Dirt Tile" type="Sprite" parent="."]
-modulate = Color( 0.321569, 0.156863, 0, 1 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 
 [node name="Farm Land Tile" type="Sprite" parent="."]
 modulate = Color( 0.505882, 0.282353, 0, 1 )
-position = Vector2( 32, 0 )
+position = Vector2( 64, 0 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Fence Tile" type="Sprite" parent="."]
 modulate = Color( 0.172549, 0.0941176, 0.0117647, 1 )
-position = Vector2( 32, 32 )
+position = Vector2( 64, 48 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fence Tile"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fence Tile/StaticBody2D"]
-polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16, 0, 0 )
+polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32, 0, 16, 0, 16, 0, 0 )
 
 [node name="Grass Tile" type="Sprite" parent="."]
-modulate = Color( 0, 0.352941, 0.0392157, 1 )
-position = Vector2( 0, 32 )
+modulate = Color( 0, 0.203922, 0.0235294, 1 )
+position = Vector2( 0, 48 )
 texture = ExtResource( 1 )
 centered = false

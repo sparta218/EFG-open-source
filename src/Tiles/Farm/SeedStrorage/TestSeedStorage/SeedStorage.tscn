@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" type="Script" id=1]
 [ext_resource path="res://src/Tiles/Farm/SeedStrorage/TestSeedStorage/Assets/SeedStation.png" type="Texture" id=2]
 [ext_resource path="res://src/Tiles/OutLine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Tiles/Outline.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -20,3 +21,5 @@ centered = false
 shape = SubResource( 1 )
 
 [node name="OutLine" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
