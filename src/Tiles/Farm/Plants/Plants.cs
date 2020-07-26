@@ -6,11 +6,13 @@ namespace EvilFarmingGame.Objects.Farm.Plants
     public struct Plants
     {
         private static Plant[] plants =
-        {
-            new Plant("Test Plant", "A Plant seed used for testing and debugging purposes", 0,
+        {    
+            //TestPlant
+            new Plant("Test Plant", "A Plant used for testing and debugging purposes", 0,
                 "res://src/Tiles/Farm/Plants/TestPlant/Texture1.png",
                 "res://src/Tiles/Farm/Plants/TestPlant/Texture2.png", Crops.TestCrop),
-            new Plant("Test Plant2", "A Plant seed used for testing and debugging purposes", 1,
+            //TestPlant 2
+            new Plant("Test Plant2", "A Plant used for testing and debugging purposes", 1,
                 "res://src/Tiles/Farm/Plants/TestPlant2/Texture1.png",
                 "res://src/Tiles/Farm/Plants/TestPlant2/Texture2.png", Crops.TestCrop2)
         };

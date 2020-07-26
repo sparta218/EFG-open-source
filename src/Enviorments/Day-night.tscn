@@ -33,10 +33,9 @@ tracks/1/keys = {
 
 [node name="DayNight" type="Node2D"]
 script = ExtResource( 1 )
-TimeOfDay = 4
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.0588235, 0.0509804, 0.192157, 1 )
+color = Color( 0.995518, 0.993194, 0.992308, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Day-Night"

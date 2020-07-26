@@ -26,6 +26,7 @@ public class Player : KinematicBody2D
 
 		Inventory = new Inventory();
 		Inventory.Items.Add(Tools.GetTool(0));
+		Inventory.Items.Add(Tools.GetTool(1));
 
 		TimeNode = (DayNight) GetNode("DayNight");
 	}
