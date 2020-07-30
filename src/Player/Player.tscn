@@ -1,16 +1,71 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/Player/Inventory/InventroySelected.png" type="Texture" id=2]
 [ext_resource path="res://src/Player/Inventory/InventorySlot.png" type="Texture" id=3]
 [ext_resource path="res://src/Enviorments/Day-night.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=6]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_1.png" type="Texture" id=7]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_8.png" type="Texture" id=8]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_3.png" type="Texture" id=9]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_11.png" type="Texture" id=10]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_5.png" type="Texture" id=11]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_2.png" type="Texture" id=12]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_7.png" type="Texture" id=13]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_4.png" type="Texture" id=14]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_6.png" type="Texture" id=15]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_10.png" type="Texture" id=16]
+[ext_resource path="res://src/Player/Sprite/farmer_sprite_9.png" type="Texture" id=17]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
 polygon = PoolVector2Array( 32, 0, 0, 0, 0, 32, 32, 32 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Right-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Up-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Down-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Left-walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
 size = 64
 font_data = ExtResource( 5 )
 
@@ -22,15 +77,9 @@ position = Vector2( -8, -8 )
 scale = Vector2( 0.5, 0.5 )
 occluder = SubResource( 1 )
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( -8, -8 )
-scale = Vector2( 0.5, 0.5 )
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -8, -8 )
-scale = Vector2( 0.5, 0.5 )
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -167,7 +216,7 @@ margin_left = 944.0
 margin_top = 568.0
 margin_right = 1104.0
 margin_bottom = 640.0
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_text = "12 AM"
 text = "12 AM"
 __meta__ = {
@@ -194,3 +243,6 @@ cast_to = Vector2( 0, 8 )
 collide_with_areas = true
 
 [node name="DayNight" parent="." instance=ExtResource( 4 )]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -8, -16, 8, -16, 8, 0, 8, 16, -8, 16, -8, -16 )

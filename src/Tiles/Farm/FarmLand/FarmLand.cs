@@ -12,7 +12,6 @@ public class FarmLand : Area2D
 	private AnimatedSprite Sprite;
 	
 	public Sprite OutLine;
-	
 	public Player PlayerBody;
 	
 	private Plant CurrentPlant;
