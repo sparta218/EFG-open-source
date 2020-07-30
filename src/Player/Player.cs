@@ -9,6 +9,7 @@ public class Player : KinematicBody2D
 {
 	private PlayerController Controller;
 	public Inventory Inventory;
+	private AnimatedSprite Sprite;
 
 	private Node2D RayPivot;
 
@@ -20,6 +21,7 @@ public class Player : KinematicBody2D
 	public override void _Ready()
 	{
 		Controller = new PlayerController(this);
+		Sprite = (AnimatedSprite) GetNode("Sprite");
 
 		RayPivot = (Node2D) GetNode("RayPivot");
 		Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
@@ -35,11 +37,58 @@ public class Player : KinematicBody2D
 	{
 		Controller.InputMovement(delta, RayPivot);
 		InventoryHandling();
+		AnimationHandeling();
+		
 		RayCasting();
 		TimeHandling();
 	}
 
-	public void InventoryHandling()
+	private void AnimationHandeling()
+	{	
+		
+		if (Input.IsActionPressed("Player_Left") ||
+		    (Input.IsActionPressed("Player_Left") && Input.IsActionPressed("Player_UP")))
+			{
+				Sprite.Play("Left-walk");
+			}
+			else if (Input.IsActionPressed("Player_Right") ||
+			         (Input.IsActionPressed("Player_Right") && Input.IsActionPressed("Player_UP")))
+			{
+				Sprite.Play("Right-walk");
+			}
+			else if (Input.IsActionPressed("Player_Up"))
+			{
+				Sprite.Play("Up-walk");
+			}
+			else if (Input.IsActionPressed("Player_Down"))
+			{
+				Sprite.Play("Down-walk");
+			}
+		
+		else
+		{
+			if (Input.IsActionJustReleased("Player_Left") ||
+			    (Input.IsActionJustReleased("Player_Left") && Input.IsActionJustReleased("Player_UP")))
+			{
+				Sprite.Play("Left");
+			}
+			else if (Input.IsActionJustReleased("Player_Right") ||
+			         (Input.IsActionJustReleased("Player_Right") && Input.IsActionJustReleased("Player_UP")))
+			{
+				Sprite.Play("Right");
+			}
+			else if (Input.IsActionJustReleased("Player_Up"))
+			{
+				Sprite.Play("Up");
+			}
+			else if (Input.IsActionJustReleased("Player_Down"))
+			{
+				Sprite.Play("Down");
+			}
+		}
+	}
+
+	private void InventoryHandling()
 	{
 		for (int i = 0; i < Inventory.Items.Count; i++)
 		{
@@ -80,7 +129,7 @@ public class Player : KinematicBody2D
 
 	}
 
-	public void RayCasting()
+	private void RayCasting()
 	{
 		foreach (RayCast2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
 		{
@@ -113,7 +162,7 @@ public class Player : KinematicBody2D
 
 	}
 
-	public void TimeHandling()
+	private void TimeHandling()
 	{
 		if(TimeNode.Afternoon)
 			Clock.BbcodeText = $"{TimeNode.TimeOfDay -12} PM";

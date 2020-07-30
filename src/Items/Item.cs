@@ -13,7 +13,7 @@ namespace EvilFarmingGame.Items
 
         public enum Types
         {    
-            Misselaniuos = 0,
+            Miscellaneous = 0,
             Tool,
             Seed,
             Crop
