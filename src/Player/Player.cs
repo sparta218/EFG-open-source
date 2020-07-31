@@ -133,12 +133,11 @@ public class Player : KinematicBody2D
 	{
 		foreach (RayCast2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
 		{
-
 			var collidedTile = RayCast.GetCollider();
 
 			switch (collidedTile)
 			{
-				case FarmLand tile:
+				case FarmLand t:
 
 					var collidedFarmLand = (FarmLand) collidedTile;
 
@@ -147,7 +146,7 @@ public class Player : KinematicBody2D
 					collidedFarmLand.PlayerBody = this;
 					break;
 
-				case SeedStorage tile:
+				case SeedStorage t:
 
 					var collidedSeedStorage = (SeedStorage) collidedTile;
 
