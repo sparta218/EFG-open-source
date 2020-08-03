@@ -23,7 +23,7 @@ public class GameControl : Node2D
             GetTree().Quit();
 
         if (Input.IsActionPressed("Game_FastForward") && Debugging)
-            Engine.TimeScale = 7;
+            Engine.TimeScale = 15;
         else
             Engine.TimeScale = 1;
     }
