@@ -69,6 +69,8 @@ public class FarmLand : Area2D
 				PlantGrown.Show();
 				PlantSeedling.Hide();
 				break;
+			default:
+				break;
 		}
 
 		if (CurrentPlant == null)
@@ -96,7 +98,7 @@ public class FarmLand : Area2D
 				{
 					HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 
-					if (HeldItem == Tools.GetTool(0))
+					if (HeldItem == Tools.GetTool(0) && State == states.UnCropped)
 					{
 						State = states.Cropped;
 					}

@@ -1,8 +1,9 @@
 using Godot;
 using System;
 
-public class WindowControl : Node2D
+public class GameControl : Node2D
 {
+    private bool Debugging = true;
     public override void _Input(InputEvent @event)
     {
         if (Input.IsActionJustPressed("Window_fullscr"))
@@ -19,8 +20,11 @@ public class WindowControl : Node2D
         }
 
         if (Input.IsActionJustPressed("Window_exit"))
-        {
             GetTree().Quit();
-        }
+
+        if (Input.IsActionPressed("Game_FastForward") && Debugging)
+            Engine.TimeScale = 15;
+        else
+            Engine.TimeScale = 1;
     }
 }
