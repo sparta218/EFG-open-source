@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/Player/Inventory/InventroySelected.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_6.png" type="Texture" id=15]
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_10.png" type="Texture" id=16]
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_9.png" type="Texture" id=17]
+[ext_resource path="res://src/Player/Currency.cs" type="Script" id=18]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
@@ -27,16 +28,6 @@ animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "Right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Right-walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
@@ -62,6 +53,16 @@ animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Left-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Right-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Up",
 "speed": 5.0
 } ]
 
@@ -94,6 +95,21 @@ editor_draw_drag_margin = true
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2( 1.5, 1.5 )
 transform = Transform2D( 1.5, 0, 0, 1.5, 0, 0 )
+
+[node name="Currency" type="RichTextLabel" parent="UI"]
+anchor_right = 0.25
+margin_left = -2.6667
+margin_top = -1.52588e-05
+margin_right = 157.333
+margin_bottom = 72.0
+rect_scale = Vector2( 0.813953, 0.902789 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_text = "12 AM"
+text = "100 m"
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Inventory" type="Node2D" parent="UI"]
 position = Vector2( 74.6666, 85.3333 )

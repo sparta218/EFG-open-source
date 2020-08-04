@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Tiles/Farm/FarmLand/FarmLand.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Tiles/Farm/SellingBooth/SellingBooth.tscn" type="PackedScene" id=5]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -24,6 +25,9 @@ Seed = 1
 
 [node name="Sprite" parent="Enviorment/TestSeedStorage2" index="0"]
 modulate = Color( 0.0862745, 0, 0.847059, 1 )
+
+[node name="SellingBooth" parent="Enviorment" instance=ExtResource( 5 )]
+position = Vector2( 431, 278 )
 
 [node name="Farmland" type="Node2D" parent="Enviorment"]
 position = Vector2( 32, 0 )

@@ -63,6 +63,7 @@
     <Compile Include="src\Items\Item.cs" />
     <Compile Include="src\Items\Seeds\Seeds.cs" />
     <Compile Include="src\Items\Tools\Tools.cs" />
+    <Compile Include="src\Player\Currency.cs" />
     <Compile Include="src\Tiles\Farm\FarmLand\FarmLand.cs" />
     <Compile Include="src\Tiles\Farm\Plants\Plant.cs" />
     <Compile Include="src\Tiles\Farm\Plants\Plants.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="src\Player\PlayerController.cs" />
     <Compile Include="src\Tiles\Farm\SeedStrorage\TestSeedStorage\SeedStorage.cs" />
     <Compile Include="src\GameControl.cs" />
+    <Compile Include="src\Tiles\Farm\SellingBooth\SellingBooth.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

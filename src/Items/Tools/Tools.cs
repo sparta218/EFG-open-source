@@ -7,9 +7,9 @@ namespace EvilFarmingGame.Items.Tools
         private static Item[] tools =
         {
             //Basic Hoe
-            new Item("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", 0, Item.Types.Tool),
+            new Item("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", 0, Item.Types.Tool, 0),
             //Basic Watering Can
-            new Item("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", 1, Item.Types.Tool)
+            new Item("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", 1, Item.Types.Tool, 0)
         };
         
         public static Item GetTool(int ID)

@@ -11,6 +11,8 @@ public class Player : KinematicBody2D
 	public Inventory Inventory;
 	private AnimatedSprite Sprite;
 
+	public int Money = 150;
+
 	private Node2D RayPivot;
 
 	private RichTextLabel Clock;
@@ -47,12 +49,12 @@ public class Player : KinematicBody2D
 	{	
 		
 		if (Input.IsActionPressed("Player_Left") ||
-		    (Input.IsActionPressed("Player_Left") && Input.IsActionPressed("Player_UP")))
+			(Input.IsActionPressed("Player_Left") && Input.IsActionPressed("Player_UP")))
 			{
 				Sprite.Play("Left-walk");
 			}
 			else if (Input.IsActionPressed("Player_Right") ||
-			         (Input.IsActionPressed("Player_Right") && Input.IsActionPressed("Player_UP")))
+					 (Input.IsActionPressed("Player_Right") && Input.IsActionPressed("Player_UP")))
 			{
 				Sprite.Play("Right-walk");
 			}
@@ -68,12 +70,12 @@ public class Player : KinematicBody2D
 		else
 		{
 			if (Input.IsActionJustReleased("Player_Left") ||
-			    (Input.IsActionJustReleased("Player_Left") && Input.IsActionJustReleased("Player_UP")))
+				(Input.IsActionJustReleased("Player_Left") && Input.IsActionJustReleased("Player_UP")))
 			{
 				Sprite.Play("Left");
 			}
 			else if (Input.IsActionJustReleased("Player_Right") ||
-			         (Input.IsActionJustReleased("Player_Right") && Input.IsActionJustReleased("Player_UP")))
+					 (Input.IsActionJustReleased("Player_Right") && Input.IsActionJustReleased("Player_UP")))
 			{
 				Sprite.Play("Right");
 			}
@@ -153,6 +155,15 @@ public class Player : KinematicBody2D
 					collidedSeedStorage.OutLine.Visible = true;
 					collidedSeedStorage.PlayerColliding = true;
 					collidedSeedStorage.PlayerBody = this;
+					break;
+
+				case SellingBooth t:
+
+					var collidedSellingBooth = (SellingBooth) collidedTile;
+
+					collidedSellingBooth.OutLine.Visible = true;
+					collidedSellingBooth.PlayerColliding = true;
+					collidedSellingBooth.PlayerBody = this;
 					break;
 
 			}

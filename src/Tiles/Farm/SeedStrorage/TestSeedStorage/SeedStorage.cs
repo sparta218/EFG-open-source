@@ -25,7 +25,14 @@ public class SeedStorage : Area2D
 			if (Seed != null)
 			{
 				if (Input.IsActionJustPressed("Player_Action"))
-					PlayerBody.Inventory.Gain(Seeds.GetSeed(Seed));
+				{
+					var CurSeed = Seeds.GetSeed(Seed);
+					if (PlayerBody.Money >= CurSeed.Price)
+					{
+						PlayerBody.Inventory.Gain(CurSeed);
+						PlayerBody.Money -= CurSeed.Price;
+					}
+				}
 			}
 		}
 		OutLine.Visible = false;
