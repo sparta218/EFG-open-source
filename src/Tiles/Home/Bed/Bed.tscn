@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Tiles/OutLine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Tiles/Home/Bed/Bed.png" type="Texture" id=2]
+[ext_resource path="res://src/Tiles/Home/Bed/Bed.cs" type="Script" id=3]
+
+[node name="Bed" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -8, -16, 8, -16, 8, 16, -8, 16, -8, -16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
+
+[node name="OutLine" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="OnSleep"]

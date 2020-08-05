@@ -4,12 +4,12 @@ namespace EvilFarmingGame.Player
 {
 	public class PlayerController
 	{
-		private KinematicBody2D Body;
+		private global::Player Body;
 
 		[Export] public float Speed = 75;
 		[Export] public float SprintSpeed = 112;
 		
-		public PlayerController(KinematicBody2D Body)
+		public PlayerController(global::Player Body)
 		{
 			this.Body = Body;
 		}
@@ -21,22 +21,22 @@ namespace EvilFarmingGame.Player
 			if (Input.IsActionPressed("Player_Up"))
 			{
 				Velocity += Vector2.Up;
-				RayPivot.RotationDegrees = 180;
+				Body.RayPivot.RotationDegrees = 180;
 			}
 			else if (Input.IsActionPressed("Player_Down"))
 			{
 				Velocity += Vector2.Down;
-				RayPivot.RotationDegrees = 0;
+				Body.RayPivot.RotationDegrees = 0;
 			}
 			if (Input.IsActionPressed("Player_Left"))
 			{
 				Velocity += Vector2.Left;
-				RayPivot.RotationDegrees = 90;
+				Body.RayPivot.RotationDegrees = 90;
 			}
 			else if (Input.IsActionPressed("Player_Right"))
 			{
 				Velocity += Vector2.Right;
-				RayPivot.RotationDegrees = 270;
+				Body.RayPivot.RotationDegrees = 270;
 			}
 			if (Velocity.Length() > 1)
 			{
@@ -48,7 +48,7 @@ namespace EvilFarmingGame.Player
 			else
 				Velocity *= Speed;
 			
-			return this.Body.MoveAndSlide(Velocity);
+			return Body.MoveAndSlide(Velocity);
 		}
 		
 	}

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Tiles/Farm/FarmLand/FarmLand.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Tiles/Home/Bed/Bed.tscn" type="PackedScene" id=5]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -170,6 +171,10 @@ position = Vector2( 305, 80 )
 
 [node name="FarmLand5" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
+
+[node name="Bed" parent="Enviorment" instance=ExtResource( 5 )]
+position = Vector2( 432, 368 )
+rotation = 1.5708
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 208 )

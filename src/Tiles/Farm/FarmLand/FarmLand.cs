@@ -3,17 +3,12 @@ using System;
 using EvilFarmingGame.Items;
 using EvilFarmingGame.Items.Tools;
 using EvilFarmingGame.Objects.Farm.Plants;
+using EvilFarmingGame.Tiles;
 
-public class FarmLand : Area2D
+public class FarmLand : InteractableTile
 {
-
-	public bool PlayerColliding = false;
-	
 	private AnimatedSprite Sprite;
-	
-	public Sprite OutLine;
-	public Player PlayerBody;
-	
+
 	private Plant CurrentPlant;
 	private Sprite PlantSeedling;
 	private Sprite PlantGrown;
@@ -35,15 +30,14 @@ public class FarmLand : Area2D
 
 	public override void _Ready()
 	{
+		InitTile();
+		
 		Sprite = (AnimatedSprite) GetNode("Sprite");
 		
 		PlantSeedling = (Sprite) GetNode("Plant/Seedling");
 		PlantGrown = (Sprite) GetNode("Plant/Grown");
 
 		PlantGrownTimer = (Timer) GetNode("Timers/PlantGrowthTimer");
-
-		OutLine = (Sprite) GetNode("OutLine");
-		OutLine.Visible = false;
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -83,8 +77,8 @@ public class FarmLand : Area2D
 			PlantSeedling.Texture = CurrentPlant.SeedlingTexture;
 			PlantGrown.Texture = CurrentPlant.GrownTexture;
 		}
-		OutLine.Visible = false;
-		PlayerColliding = false;
+
+		UpdateTile();
 	}
 
 	public override void _Input(InputEvent @event)
@@ -94,8 +88,9 @@ public class FarmLand : Area2D
 		{
 			if (Input.IsActionJustPressed("Player_Action"))
 			{
-				if (PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
+				if (PlayerBody != null && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
 				{
+
 					HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 
 					if (HeldItem == Tools.GetTool(0) && State == states.UnCropped)
@@ -131,7 +126,7 @@ public class FarmLand : Area2D
 
 				}
 
-				if (PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
+				if (PlayerBody != null && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
 				{
 					if (State == states.Grown)
 					{

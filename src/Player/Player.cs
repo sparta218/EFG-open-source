@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using EvilFarmingGame.Items;
 using EvilFarmingGame.Items.Tools;
 using EvilFarmingGame.Player;
+using EvilFarmingGame.Tiles;
 
 public class Player : KinematicBody2D
 {
@@ -11,10 +12,12 @@ public class Player : KinematicBody2D
 	public Inventory Inventory;
 	private AnimatedSprite Sprite;
 
-	private Node2D RayPivot;
+	public Node2D RayPivot;
 
 	private RichTextLabel Clock;
 	public DayNight TimeNode;
+
+	private RichTextLabel MessageLabel;
 
 	private ResourcePreloader Loader = new ResourcePreloader();
 
@@ -25,6 +28,9 @@ public class Player : KinematicBody2D
 
 		RayPivot = (Node2D) GetNode("RayPivot");
 		Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
+		
+		MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
+		MessageLabel.BbcodeText = "";
 
 		Inventory = new Inventory();
 		Inventory.Items.Add(Tools.GetTool(0));
@@ -125,8 +131,6 @@ public class Player : KinematicBody2D
 			if (Inventory.HeldSlot > 0)
 				Inventory.HeldSlot--;
 		}
-
-
 	}
 
 	private void RayCasting()
@@ -135,30 +139,17 @@ public class Player : KinematicBody2D
 		{
 			var collidedTile = RayCast.GetCollider();
 
-			switch (collidedTile)
+			if (collidedTile is InteractableTile)
 			{
-				case FarmLand t:
+				var collidedIntTile = (InteractableTile) collidedTile;
 
-					var collidedFarmLand = (FarmLand) collidedTile;
-
-					collidedFarmLand.OutLine.Visible = true;
-					collidedFarmLand.PlayerColliding = true;
-					collidedFarmLand.PlayerBody = this;
-					break;
-
-				case SeedStorage t:
-
-					var collidedSeedStorage = (SeedStorage) collidedTile;
-
-					collidedSeedStorage.OutLine.Visible = true;
-					collidedSeedStorage.PlayerColliding = true;
-					collidedSeedStorage.PlayerBody = this;
-					break;
-
+				collidedIntTile.OutLine.Visible = true;
+				collidedIntTile.PlayerColliding = true;
+				collidedIntTile.PlayerBody = this;
+				
+				break;
 			}
-			if (collidedTile != null) break;
 		}
-
 	}
 
 	private void TimeHandling()
@@ -167,5 +158,18 @@ public class Player : KinematicBody2D
 			Clock.BbcodeText = $"{TimeNode.TimeOfDay -12} PM";
 		else
 			Clock.BbcodeText = $"{TimeNode.TimeOfDay} AM";
+	}
+
+	public void MessagePlayer(string Message)
+	{
+		var Timer = (Timer) GetNode("UI/ControlUI/MessageTimer");
+
+		MessageLabel.BbcodeText = Message;
+		Timer.Start();
+	}
+
+	public void OnMessageTimer()
+	{
+		MessageLabel.BbcodeText = "";
 	}
 }

@@ -49,6 +49,12 @@
               </e>
             </e>
           </e>
+          <e p="Home" t="Include">
+            <e p="Bed" t="Include">
+              <e p="Bed.cs" t="Include" />
+            </e>
+          </e>
+          <e p="InteractableTile.cs" t="Include" />
         </e>
       </e>
     </e>
